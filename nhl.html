@@ -1,35 +1,90 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Martin Family Pool</title>
-    <style>
-        /* This ensures the sheet fills a reasonable amount of the screen */
-        .sheet-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 20px auto;
-            text-align: center;
-        }
-        iframe {
-            border: 1px solid #ccc;
-            width: 100%;
-            height: 600px; /* Adjust this height as needed */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Sheets CSV to HTML Table</title>
+  
+  <!-- Papa Parse Library for robust CSV parsing -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  
 </head>
 <body>
-    <header>
-        <a href="nba.html">NBA Pool</a>
-    </header>
 
-    <div class="sheet-container">
-        <h1>NHL Pool 2026</h1>
-        <!-- REPLACE THE SRC BELOW WITH YOUR UNIQUE EMBED LINK -->
-        <iframe src="https://docs.google.com/spreadsheets/d/1mgLZFSPwE9tkhgdteERJs4SENony2Ob1DGpkB9QgHwY/edit?gid=1561230184#gid=1561230184?rm=minimal"></iframe>
-    </div>
+  <div class="header-container">
+    <h5><a href="index.html">Home</a></h5>
+    <h5><a href="nhlpicksw.html">First Round-Western Conference Picks</a></h5>
+    <h5><a href="nhlpickse.html">First Round-Eastern Conference Picks</a></h5>
+  </div>
+
+  <h2>NHL Pool Standings</h2>
+  
+  <div class="table-container">
+    <table id="csvTable">
+      <thead>
+        <tr id="tableHeader"></tr>
+      </thead>
+      <tbody id="tableBody">
+        <tr>
+          <td>Loading data...</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    // ⚠️ Replace this with your actual published Google Sheets CSV URL
+    const sheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQpxqQmT4f7xWlETvAp7zfoTVBDH2Ek0j57MICCzseH5w6eY7m2KRK-RvG7leqbKZuqUXQY5cHLiokI/pub?gid=652815698&single=true&output=csv";
+
+    async function loadTable() {
+      try {
+        const response = await fetch(sheetUrl);
+        const csvText = await response.text();
+
+        Papa.parse(csvText, {
+          header: true,
+          skipEmptyLines: true,
+          complete: function(results) {
+            const data = results.data;
+            const fields = results.meta.fields;
+
+            const headerRow = document.getElementById('tableHeader');
+            const tableBody = document.getElementById('tableBody');
+
+            // 1. Clear placeholder/old loading content
+            headerRow.innerHTML = '';
+            tableBody.innerHTML = '';
+
+            // 2. Build the Table Headers
+            fields.forEach(field => {
+              const th = document.createElement('th');
+              th.textContent = field;
+              headerRow.appendChild(th);
+            });
+
+            // 3. Build the Table Rows
+            data.forEach(row => {
+              const tr = document.createElement('tr');
+              fields.forEach(field => {
+                const td = document.createElement('td');
+                td.textContent = row[field];
+                tr.appendChild(td);
+              });
+              tableBody.appendChild(tr);
+            });
+          }
+        });
+
+      } catch (error) {
+        console.error("Failed to load spreadsheet:", error);
+        document.getElementById('tableBody').innerHTML = "<tr><td>Error loading data.</td></tr>";
+      }
+    }
+
+    // Initialize fetching when the page loads
+    loadTable();
+  </script>
 
 </body>
 </html>
