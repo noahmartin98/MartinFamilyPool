@@ -86,7 +86,7 @@ tr:nth-child(even) td:first-child {
 }
 
 .link-container {
-  display: flex;
+  display: block;
   gap: 20px;
   padding: 20px;
   background-color: #f4f4f4;
