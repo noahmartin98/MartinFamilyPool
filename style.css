@@ -1,79 +1,115 @@
 
 body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f4f7f6;
-    }
-    h2 {
-      color: #333;
-    }
-    .table-container {
-      overflow-x: auto;
-      margin-top: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      border-radius: 8px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background-color: #fff;
-    }
-    th, td {
-      padding: 12px 15px;
-      text-align: left;
-      border-bottom: 1px solid #e0e0e0;
-    }
-    th {
-      background-color: #009879;
-      color: #ffffff;
-      font-weight: bold;
-    }
-    tr:nth-child(even) {
-      background-color: #f9f9f9;
-    }
-    tr:hover {
-      background-color: #f1f1f1;
-    }
+  font-family: Arial, sans-serif;
+  margin: 40px;
+  background-color: #f4f7f6;
+}
 
-    .table-container {
-    overflow-x: auto;
-    margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    max-width: 100%; /* Ensures container stays within screen */
+h2 {
+  color: #333;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+  background-color: #009879;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  max-width: 100%; /* Ensures container stays within screen */
 }
 
 /* Freeze the first column */
 th:first-child, 
 td:first-child {
-    position: sticky;
-    left: 0;
-    z-index: 2; /* Keeps it above other cells */
-    background-color: #fff; /* Solid background prevents overlap transparency */
-    border-right: 2px solid #e0e0e0;
+  position: sticky;
+  left: 0;
+  z-index: 2; /* Keeps it above other cells */
+  background-color: #fff; /* Solid background prevents overlap transparency */
+  border-right: 2px solid #e0e0e0;
 }
 
 /* Ensure the header stays on top of the frozen column */
-th:first-child {
-    background-color: #009879;
-    z-index: 3; 
+  th:first-child {
+  background-color: #009879;
+  z-index: 3; 
 }
 
 /* Add a slight background change for even rows so the frozen cell matches */
 tr:nth-child(even) td:first-child {
-    background-color: #f9f9f9;
+  background-color: #f9f9f9;
 }
 
 /* Style for the last row */
 .total-row {
-    background-color: #333 !important; /* Dark grey */
-    color: #ffffff; /* White text */
-    font-weight: bold;
+  background-color: #333 !important; /* Dark grey */
+  color: #ffffff; /* White text */
+  font-weight: bold;
 }
 
 /* Ensure the frozen first column also changes color for the last row */
 .total-row td:first-child {
-    background-color: #333 !important;
-    color: #ffffff;
-    border-right: 2px solid #555;
+  background-color: #333 !important;
+  color: #ffffff;
+  border-right: 2px solid #555;
+}
+
+.link-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+.link-container a {
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  color: #009879;
+  border: 2px solid #009879;
+}
+
+.link-container a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background-color: #009879;
+  color: #fff;
+}
+
+#scroll {
+  font-size: 12px;
 }
