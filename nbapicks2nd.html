@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Martin Family Pool</title>
+  
+  <!-- Papa Parse Library for robust CSV parsing -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="link-container">
+    <a href="index.html">Home</a>
+    <a href="nba.html">Pool Standings</a>
+    <a href="nbapicksw.html">First Round-West</a>
+    <a href="nbapickse.html">First Round-East</a>
+  </div>
+
+  <h2>NBA Second Round Picks</h2>
+  
+  <div class="table-container">
+    <table id="csvTable">
+      <thead>
+        <tr id="tableHeader"></tr>
+      </thead>
+      <tbody id="tableBody">
+        <tr>
+          <td>Loading data...</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // published Google Sheets CSV URL:
+    const sheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTtXwmuVqVAreUf8JJOqAjQffDlOm5V2c7cb4PpaqLhsCHDvqO2sX1hOdrjbaegAmFcF6xTS8dqOeB4/pub?gid=2056008681&single=true&output=csv";
+
+    // Initialize fetching when the page loads
+    loadTablePicks();
+  </script>
+
+  <div id="scroll">
+    <p>Scroll on mobile ></p>
+  </div>
+
+</body>
+</html>
