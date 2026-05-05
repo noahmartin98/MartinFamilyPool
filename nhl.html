@@ -33,54 +33,10 @@
     </table>
   </div>
 
+  <script src="script.js"></script>
   <script>
-    // ⚠️ Replace this with your actual published Google Sheets CSV URL
+    // published Google Sheets CSV URL:
     const sheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQpxqQmT4f7xWlETvAp7zfoTVBDH2Ek0j57MICCzseH5w6eY7m2KRK-RvG7leqbKZuqUXQY5cHLiokI/pub?gid=652815698&single=true&output=csv";
-
-    async function loadTable() {
-      try {
-        const response = await fetch(sheetUrl);
-        const csvText = await response.text();
-
-        Papa.parse(csvText, {
-          header: true,
-          skipEmptyLines: true,
-          complete: function(results) {
-            const data = results.data;
-            const fields = results.meta.fields;
-
-            const headerRow = document.getElementById('tableHeader');
-            const tableBody = document.getElementById('tableBody');
-
-            // 1. Clear placeholder/old loading content
-            headerRow.innerHTML = '';
-            tableBody.innerHTML = '';
-
-            // 2. Build the Table Headers
-            fields.forEach(field => {
-              const th = document.createElement('th');
-              th.textContent = field;
-              headerRow.appendChild(th);
-            });
-
-            // 3. Build the Table Rows
-            data.forEach(row => {
-              const tr = document.createElement('tr');
-              fields.forEach(field => {
-                const td = document.createElement('td');
-                td.textContent = row[field];
-                tr.appendChild(td);
-              });
-              tableBody.appendChild(tr);
-            });
-          }
-        });
-
-      } catch (error) {
-        console.error("Failed to load spreadsheet:", error);
-        document.getElementById('tableBody').innerHTML = "<tr><td>Error loading data.</td></tr>";
-      }
-    }
 
     // Initialize fetching when the page loads
     loadTable();
