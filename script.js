@@ -87,7 +87,7 @@ async function loadTablePicks(columnsToRemove) {
                     tr.classList.add('total-row');
                 }
 
-                const visibleCells = row.slice(0, -8);
+                const visibleCells = row.slice(0, -columnsToRemove);
                 visibleCells.forEach(cell => {
                     const td = document.createElement('td');
                     td.textContent = cell;
