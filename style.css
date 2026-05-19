@@ -88,15 +88,10 @@ tr:nth-child(even) td:first-child {
 .link-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
   padding: 20px;
   background-color: #f4f4f4;
   align-items: center;
-}
-
-.link-container h5 {
-  margin: 0;
-  display: inline;
 }
 
 .link-container a {
