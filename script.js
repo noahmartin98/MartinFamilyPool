@@ -43,7 +43,7 @@ async function loadTable() {
       }
     }
 
-async function loadTablePicks() {
+async function loadTablePicks(columnsToRemove) {
       try {
         const response = await fetch(sheetUrl);
         const csvText = await response.text();
@@ -60,8 +60,8 @@ async function loadTablePicks() {
               headerRow.innerHTML = '';
               tableBody.innerHTML = '';
 
-              // 1. Set Headers (Row 5) and remove last 4 columns
-              const headers = allRows[0].slice(0, -8);
+              // 1. Set Headers (Row 5) and remove last x columns
+              const headers = allRows[0].slice(0, -columnsToRemove);
               headers.forEach(h => {
                   const th = document.createElement('th');
                   th.textContent = h;
