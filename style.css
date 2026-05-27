@@ -51,8 +51,8 @@ tr:hover {
 }
 
 /* Freeze the first column */
-th:first-child, 
-td:first-child {
+.freeze-first th:first-child, 
+.freeze-first td:first-child {
   position: sticky;
   left: 0;
   z-index: 2; /* Keeps it above other cells */
@@ -61,7 +61,7 @@ td:first-child {
 }
 
 /* Ensure the header stays on top of the frozen column */
-  th:first-child {
+  .freeze-first th:first-child {
   background-color: #009879;
   z-index: 3; 
 }
