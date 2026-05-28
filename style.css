@@ -78,7 +78,7 @@ tr:hover {
 }
 
 /* Ensure the header stays on top of the frozen column */
-  .freeze-first th:first-child {
+.freeze-first th:first-child {
   background-color: #009879;
   z-index: 3; 
 }
@@ -96,6 +96,12 @@ tr:nth-child(even) td:first-child {
   z-index: 2; /* Keeps it above other cells */
   background-color: #fff; /* Solid background prevents overlap transparency */
   border-right: 2px solid #e0e0e0;
+}
+
+/* Ensure the header stays on top of the frozen column */
+.freeze-second th:nth-child(2) {
+  background-color: #009879;
+  z-index: 3; 
 }
 
 /* Style for the last row */
