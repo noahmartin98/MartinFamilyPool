@@ -83,9 +83,29 @@ tr:hover {
   z-index: 3; 
 }
 
+/* Freeze the first column */
+.freeze-first th:first-child, 
+.freeze-first td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2; /* Keeps it above other cells */
+  background-color: #fff; /* Solid background prevents overlap transparency */
+  border-right: 2px solid #e0e0e0;
+}
+
 /* Add a slight background change for even rows so the frozen cell matches */
 tr:nth-child(even) td:first-child {
   background-color: #f9f9f9;
+}
+
+/* Freeze the second column */
+.freeze-second th:second-child, 
+.freeze-second td:second-child {
+  position: sticky;
+  left: 0;
+  z-index: 2; /* Keeps it above other cells */
+  background-color: #fff; /* Solid background prevents overlap transparency */
+  border-right: 2px solid #e0e0e0;
 }
 
 /* Style for the last row */
