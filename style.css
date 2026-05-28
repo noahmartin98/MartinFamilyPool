@@ -9,6 +9,10 @@ h2 {
   color: #333;
 }
 
+div.scoring-exp {
+  margin-top: 50px;
+}
+
 .table-container {
   overflow-x: auto;
   margin-top: 20px;
