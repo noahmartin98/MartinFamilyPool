@@ -90,8 +90,8 @@ table.overall-standings td:nth-child(6) {
   border-right: 2px solid black !important;
 }
 
-table.overall-standings th:nth-child(n+3),
-table.overall-standings td:nth-child(n+3) {
+table.overall-standings th:nth-child(n+4),
+table.overall-standings td:nth-child(n+4) {
   text-align: center;
 }
 
