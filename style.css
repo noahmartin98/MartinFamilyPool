@@ -89,7 +89,7 @@ tr:nth-child(even) td:first-child {
 }
 
 /* Freeze the second column */
-.freeze-second th:nth-child(2), 
+/*.freeze-second th:nth-child(2), */
 .freeze-second td:nth-child(2) {
   position: sticky;
   left: 0;
@@ -102,6 +102,11 @@ tr:nth-child(even) td:first-child {
 .freeze-second th:nth-child(2) {
   background-color: #009879;
   z-index: 3; 
+}
+
+/* Add a slight background change for even rows so the frozen cell matches */
+tr:nth-child(even) td:nth-child(2) {
+  background-color: #f9f9f9;
 }
 
 /* Style for the last row */
