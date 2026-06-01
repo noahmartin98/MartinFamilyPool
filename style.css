@@ -89,7 +89,7 @@ tr:nth-child(even) td:first-child {
 }
 
 /* Freeze the second column */
-.freeze-second #table-header th:nth-child(2), 
+.freeze-second #tableHeader th:nth-child(2), 
 .freeze-second td:nth-child(2) {
   position: sticky;
   left: 0;
@@ -99,7 +99,7 @@ tr:nth-child(even) td:first-child {
 }
 
 /* Ensure the header stays on top of the frozen column */
-.freeze-second th:nth-child(2) {
+.freeze-second #tableHeader th:nth-child(2) {
   background-color: #009879;
   z-index: 3; 
 }
