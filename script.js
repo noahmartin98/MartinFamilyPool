@@ -70,7 +70,7 @@ async function loadTablePicks(columnsToRemove) {
 
               // 2. Handle Data Rows
               // .slice(1, -6) takes everything after header, but stops 6 rows before the end
-              const middleData = allRows.slice(1, -6); 
+              const middleData = allRows.slice(1, -5); 
               
               // Grab the very last row
               const lastRow = allRows[allRows.length - 1];
